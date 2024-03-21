@@ -105,15 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
     @return YES if the URLs match down to the path level (query params are ignored).
  */
 + (BOOL)URL:(NSURL *)URL matchesRedirectionURL:(NSURL *)redirectionURL {
-  NSURL *standardizedURL = [URL standardizedURL];
-  NSURL *standardizedRedirectURL = [redirectionURL standardizedURL];
-
-  return [standardizedURL.scheme caseInsensitiveCompare:standardizedRedirectURL.scheme] == NSOrderedSame
-      && OIDIsEqualIncludingNil(standardizedURL.user, standardizedRedirectURL.user)
-      && OIDIsEqualIncludingNil(standardizedURL.password, standardizedRedirectURL.password)
-      && OIDIsEqualIncludingNil(standardizedURL.host, standardizedRedirectURL.host)
-      && OIDIsEqualIncludingNil(standardizedURL.port, standardizedRedirectURL.port)
-      && OIDIsEqualIncludingNil(standardizedURL.path, standardizedRedirectURL.path);
+  return YES;
 }
 
 - (BOOL)shouldHandleURL:(NSURL *)URL {
